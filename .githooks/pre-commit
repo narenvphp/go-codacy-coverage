@@ -1,0 +1,10 @@
+sh test.sh
+
+export CODACY_PROJECT_TOKEN=340102240652451a9f81fb32cfdbfdb4
+
+echo Sending codacy coverage
+printF "The codacy project token is $CODACY_PROJECT_TOKEN\n"
+
+printf "\033[32mSENDING COVERAGE REPORTS\033[0m\n"
+curl -Ls https://coverage.codacy.com/get.sh | sh -s -- report -r coverage.xml
+curl -Ls https://coverage.codacy.com/get.sh | sh -s -- final
